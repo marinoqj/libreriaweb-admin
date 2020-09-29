@@ -14,6 +14,11 @@ public class ForwardConstants {
 	
 	public static final String FWD_LISTADO_PEDIDOS = "ListadoPedidos";
 	public static final String FWD_LISTADO_DETALLES_PEDIDO = "ListadoDetallesPedido";
+	
+	
+	public static final String FWD_LISTADO_PRODUCTOS = "ListadoProductos";	
+	public static final String RED_LISTADO_PRODUCTOS = "redirect:listadoProductos1.do";
+	public static final String FWD_PRODUCTO_FORM = "ProductoForm";
 
 	
 }

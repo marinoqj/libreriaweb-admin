@@ -57,34 +57,37 @@
               <table class="table table-sm table-hover" id="itemList">
 				<thead class="blue lighten-4">
 					<tr class="bg-light">	
-					<th>Nombre</th>															
-					<th>Precio</th>																							
-					<th>Cantidad</th>
-					<th>Total</th>
+					<td><b>Nombre</b></td>															
+					<td align="center"><b>Precio producto</b></td>																							
+					<td align="right"><b>Cantidad</b></td>
+					<td align="right"><b>Total producto</b></td>
+					<td>&nbsp;</td>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr class="bg-light">
-					<th>&nbsp;</th>																					
-					<th>&nbsp;</th>																						
-					<th>Total</th>
-					<th><label id="totalLista">${pedido.total}</label></th>
-                  </tr>
-                </tfoot>
                 <tbody>
 					<c:forEach items="${pedido.detalles}" var="detalle">
 						<tr id="itemRow_${detalle.producto.idProducto}">
 						
 							<td>${detalle.producto.nombre}</td>						
 						
-							<td>${detalle.precio}</td>		
+							<td align="center">${detalle.precio}</td>		
 							
-							<td>${detalle.cantidad}</td>	
+							<td align="right">${detalle.cantidad}</td>	
 							
-							<td><label><fmt:formatNumber pattern="###,###.00" value="${detalle.precio * detalle.cantidad}"/></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>						
-																
+							<td align="right"><label><fmt:formatNumber pattern="###,###.00" value="${detalle.totalDetalle}"/></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>						
+								
+							<td>&nbsp;</td>								
 						</tr>
 					</c:forEach>
+                <tfoot>
+                  <tr class="bg-light">
+					<td>&nbsp;</td>																					
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>																							
+					<td align="right"><b>Total: </b><label id="totalLista"><b>${pedido.total}</b></label></td>
+                  </tr>
+                </tfoot>					
                 </tbody>
               </table>		
 	

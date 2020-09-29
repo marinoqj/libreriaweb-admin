@@ -2,6 +2,13 @@
 
 <script>
 
+//Para limpiar las ventanas modales
+$(document).ready(function(){
+    $('#modalBuscar').on('hidden.bs.modal', function () {
+        $('form[id="formularioBuscar"]').trigger('reset');
+    });
+});
+
 function verPedidosCliente(idCliente){
 	 
  	document.formulario.idCliente.value = idCliente;
@@ -39,7 +46,7 @@ function verPedidosCliente(idCliente){
 		
 <div class="row">
 <div class="col-md-8">
-	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#buscarFormulario"><i class="fas fa-search"></i> &nbsp;&nbsp;Buscar</button>  
+	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalBuscar"><i class="fas fa-search"></i> &nbsp;&nbsp;Buscar</button>  
 	<button type="button" class="btn btn-outline-blue btn-rounded btn-sm px-2">
         <i class="fas fa-file-pdf fa-2x"></i>
       </button>
@@ -47,26 +54,8 @@ function verPedidosCliente(idCliente){
         <i class="fas fa-file-excel fa-2x"></i>
       </button>
 </div>
-<div class="col-md-4">
-  <ul class="pagination pagination-sm pg-blue justify-content-end">
-    <li class="page-item disabled"><a class="page-link">Primero</a></li>
-    <li class="page-item disabled">
-      <a class="page-link" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li class="page-item active"><a class="page-link">1</a></li>
-    <li class="page-item">
-      <a class="page-link" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link">Último</a></li>
-    <li class="page-item"><a class="page-link">(10 págs.)</a></li>
-  </ul>
-</div>
+
+<mistags:paginacion accion="listadoClientes" />
 
 
 </div>		
@@ -112,11 +101,12 @@ function verPedidosCliente(idCliente){
               </table>		
 		</c:if>
 	
-
+<br>
+<br>
 
 	
 <!-- Modal -->
-<div class="modal fade" id="buscarFormulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="modalBuscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -131,47 +121,22 @@ function verPedidosCliente(idCliente){
 		<div class="col-md-1">&nbsp;</div>
 		<div class="col-md-10">
 		<!-- Extended default form grid -->
-		<form>
-			<!-- Grid row -->
+		
+		<form:form modelAttribute="cliente" action='buscarClientes.do' method="post" id="formularioBuscar">
 			<div class="form-row">
-				<!-- Default input -->
 				<div class="form-group col-md-6">
-					<label for="inputEmail4">Nombre</label> <input type="email"
-						class="form-control" id="inputEmail4">
+					<label for="nombre">Nombre</label> <form:input path="nombre" class="form-control" id="nombre"/><form:errors path="nombre" element="div" id="rojo"/>
 				</div>
-				<!-- Default input -->
 				<div class="form-group col-md-6">
-					<label for="inputPassword4">Apellidos</label> <input type="password"
-						class="form-control" id="inputPassword4" >
+					<label for="precio">Apellidos</label> <form:input path="apellidos" class="form-control" id="apellidos"/><form:errors path="apellidos" element="div" id="rojo"/>
 				</div>
-			</div>
-			<!-- Grid row -->
-
-			<!-- Default input -->
-			<div class="form-group">
-				<label for="inputAddress">Dirección</label> <input type="text"
-					class="form-control" id="inputAddress">
-			</div>
-			<!-- Default input -->
-			<div class="form-group">
-				<label for="inputAddress2">Población</label> <input type="text"
-					class="form-control" id="inputAddress2">
-			</div>
-			<!-- Grid row -->
+			</div>								
+			
 			<div class="form-row">
-				<!-- Default input -->
-				<div class="form-group col-md-6">
-					<label for="inputCity">Provincia</label> <input type="text"
-						class="form-control" id="inputCity">
-				</div>
-				<!-- Default input -->
-				<div class="form-group col-md-6">
-					<label for="inputZip">Código postal</label> <input type="text"
-						class="form-control" id="inputZip">
+				<div class="form-group col-md-12">
+					<label for="precio">Dirección</label> <form:input path="direccion" class="form-control" id="direccion"/><form:errors path="direccion" element="div" id="rojo"/>
 				</div>
 			</div>
-			<!-- Grid row -->
-		</form>
 		<!-- Extended default form grid -->
 		</div>
 		<div class="col-md-1">&nbsp;</div>
@@ -179,8 +144,11 @@ function verPedidosCliente(idCliente){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><i class="fas fa-times-circle"></i>&nbsp;&nbsp;Cancelar</button>
-        <button type="button" class="btn btn-success btn-sm"><i class="fas fa-save"></i> &nbsp;&nbsp;Guardar</button>
+        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> &nbsp;&nbsp;Buscar</button>
       </div>
+      
+      </form:form>
+      
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
 	<artifactId>libreriaweb-admin</artifactId>
 	<name>libreriaweb-admin</name>
 	<packaging>war</packaging>
-	<version>1.0</version>
+	<version>1.0.1</version>
 	<description>Proyecto monolitico</description>
 	
 
@@ -172,7 +172,13 @@
 	  		<groupId>org.apache.httpcomponents</groupId>
 	  		<artifactId>httpclient</artifactId>
 	  		<version>4.3.6</version>
-		</dependency>		
+		</dependency>	
+		
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-math3</artifactId>
+		    <version>3.6.1</version>
+		</dependency>			
 		
 		<!-- Hibernate - JPA -->
 		<dependency>
@@ -201,7 +207,7 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>
 			<version>${hibernate.version}</version>
-		</dependency>		
+		</dependency>
 		
 		
 	</dependencies>

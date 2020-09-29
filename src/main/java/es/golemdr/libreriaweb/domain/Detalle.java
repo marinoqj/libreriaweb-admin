@@ -1,5 +1,7 @@
 package es.golemdr.libreriaweb.domain;
 
+import org.apache.commons.math3.util.Precision;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -11,6 +13,7 @@ public class Detalle {
 	private Long idDetalle;
 	private Double precio;
 	private Integer cantidad;
+	private Double totalDetalle;
 
 	private Producto producto;	
 
@@ -56,6 +59,12 @@ public class Detalle {
 		this.pedido = pedido;
 	}
 	
-	
+	public Double getTotalDetalle() {
+		return Precision.round(this.precio * this.cantidad, 2);
+	}
+
+	public void setTotalDetalle(Double totalDetalle) {
+		this.totalDetalle = totalDetalle;
+	}		
 
 }

@@ -37,6 +37,17 @@
     <definition name="ListadoDetallesPedido" extends="baseLayout">
         <put-attribute name="title" value="Listado de pedidos"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/listadoDetallesPedido.jsp"/>
-    </definition> 
+    </definition>
+    
+     <!-- Productos -->
+    <definition name="ProductoForm" extends="baseLayout">
+        <put-attribute name="title" value="Alta de productos"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/productos/productoForm.jsp"/>
+    </definition>
+
+    <definition name="ListadoProductos" extends="baseLayout">
+        <put-attribute name="title" value="Listado de productos"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/productos/listadoProductos.jsp"/>
+    </definition> 	 
       
 </tiles-definitions>

@@ -15,6 +15,7 @@ public class Producto {
 	private String nombreFoto;
 	private Integer tipo;
 	private Integer cantidad;
+	private Categoria categoria;
 	
 	
 	public Long getIdProducto() {
@@ -52,6 +53,12 @@ public class Producto {
 	}
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	

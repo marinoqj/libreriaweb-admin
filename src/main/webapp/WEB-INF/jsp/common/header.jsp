@@ -18,11 +18,14 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href='<spring:url value="/listadoClientes.do"/>'>Clientes <span
+					href='<spring:url value="/listadoClientes1.do"/>'>Clientes <span
 						class="sr-only">(current)</span></a></li>
 				<li class="nav-item active"><a class="nav-link"
 					href='<spring:url value="/listadoPedidos.do"/>'>Pedidos </a></li>
+				<li class="nav-item active"><a class="nav-link"
+					href='<spring:url value="/listadoProductos1.do"/>'>Productos </a></li>					
 			</ul>
 		</div>
+		<h5><b>Tienda web con arquitectura de microservicios - ADMIN</b></h5>
 	</div>
 </nav>
