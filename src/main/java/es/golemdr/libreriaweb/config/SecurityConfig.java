@@ -21,6 +21,8 @@ import es.golemdr.libreriaweb.service.security.CustomUserDetailsService;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
+		// Este es otro comentario
+	
 	   @Autowired
 	   PasswordEncoder passwordEncoder;
 	   
