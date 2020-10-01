@@ -39,7 +39,7 @@
 			<AppenderRef ref="FileError" />
 			<AppenderRef ref="Console" />
 		</Logger>
-		<Logger name="org.springframework" level="info" additivity="false">
+		<Logger name="org.springframework" level="debug" additivity="false">
 			<AppenderRef ref="FileDebug" />
 			<AppenderRef ref="FileError" />
 			<AppenderRef ref="Console" />
