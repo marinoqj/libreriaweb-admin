@@ -23,19 +23,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	   @Autowired
 	   PasswordEncoder passwordEncoder;
-	   
-//		@Bean
-//		@Override
-//		public UserDetailsService userDetailsService() {
-//			UserDetails user =
-//				 User.withUsername("usuario")					
-//					.password(new BCryptPasswordEncoder().encode("aaa"))
-//					.roles("USER")
-//					.build();
-//
-//			return new InMemoryUserDetailsManager(user);
-//		}
-	   
 	 
 		@Bean
 		@Override
@@ -48,11 +35,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	    	
 	    	auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder);
 	    	
-//	        auth.inMemoryAuthentication()
-//	        .passwordEncoder(passwordEncoder)
-//	        .withUser("user").password(passwordEncoder.encode("123456")).roles("USER")
-//	        .and()
-//	        .withUser("admin").password(passwordEncoder.encode("123456")).roles("USER", "ADMIN");
 	    }
 	   
 	 
