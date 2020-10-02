@@ -22,7 +22,7 @@
 					href='<spring:url value="/listadoClientes1.do"/>'>Clientes <span
 						class="sr-only">(current)</span></a></li>
 				<li class="nav-item active"><a class="nav-link"
-					href='<spring:url value="/listadoPedidos.do"/>'>Pedidos </a></li>
+					href='<spring:url value="/listadoPedidos1.do"/>'>Pedidos </a></li>
 			</sec:authorize>
 				<li class="nav-item active"><a class="nav-link"
 					href='<spring:url value="/listadoProductos1.do"/>'>Productos </a></li>					

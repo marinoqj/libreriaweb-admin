@@ -100,6 +100,14 @@ function verPedidosCliente(idCliente){
                 </tbody>
               </table>		
 		</c:if>
+		
+		<c:if  test="${empty clientes}">>
+		<div class="row">
+			<div class="col-md-3 col-lg-2">&nbsp;</div>
+			<div class="col-md-6 col-lg-4 align-middle alert alert-warning"><i class="fas fa-info-circle fa-2x"></i> No se encontraron clientes que mostrar</div>
+			<div class="col-md-3 col-lg-2">&nbsp;</div>
+		</div>
+		</c:if> 
 	
 <br>
 <br>

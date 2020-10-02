@@ -38,8 +38,14 @@ function verDetallePedido(idPedido){
 				</nav>
 			</div>
 		</div>
-		
-        	  <!-- DataTables Example -->
+
+
+<div class="row">
+	<div class="col-md-8">&nbsp;</div>
+
+	<mistags:paginacion accion="listadoPedidos" />
+
+</div>        	  
               <table class="table table-hover" id="dataTable">
 				<thead class="blue lighten-4">
 					<tr class="bg-light">
@@ -78,8 +84,12 @@ function verDetallePedido(idPedido){
               </table>		
 		</c:if>
 		
-		<c:if  test="${empty pedidos}">
-			No se encontraron pedidos
+		<c:if  test="${empty pedidos}">>
+		<div class="row">
+			<div class="col-md-3 col-lg-2">&nbsp;</div>
+			<div class="col-md-6 col-lg-4 align-middle alert alert-warning"><i class="fas fa-info-circle fa-2x"></i> No se encontraron pedidos que mostrar</div>
+			<div class="col-md-3 col-lg-2">&nbsp;</div>
+		</div>
 		</c:if> 
 	
 

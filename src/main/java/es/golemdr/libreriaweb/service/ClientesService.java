@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import es.golemdr.libreriaweb.domain.Cliente;
-import es.golemdr.libreriaweb.domain.Pedido;
+import es.golemdr.libreriaweb.ext.Constantes;
 import es.golemdr.libreriaweb.ext.utils.paginacion.PaginacionBean;
 
 @Service
@@ -21,15 +21,6 @@ public class ClientesService extends BaseService{
 	
 	private static final Logger log = LogManager.getLogger(ClientesService.class);
 	
-	public List<Cliente> getClientes(){
-		
-		ResponseEntity<Cliente[]> response = restTemplate.getForEntity(SERVER + ":" + PORT + "/clientes", Cliente[].class);
-		
-		Cliente[] clientes = response.getBody();
-		
-		return Arrays.asList(clientes);
-
-	}
 
 	public List<Cliente> findClientes(Cliente cliente){
 		
@@ -41,30 +32,23 @@ public class ClientesService extends BaseService{
 
 	}
 	
-	
-	// TODO -- Refactorizar estos métodos de aquí para abajo
-	
 	public List<Cliente> getClientesPaginados(PaginacionBean paginacion){
 		
-		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.set("Paginacion-Inicio", String.valueOf(paginacion.getInicio()));
-		headers.set("Paginacion-ElementosPagina", String.valueOf(paginacion.getElementosXpagina()));
-
-		HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+		HttpEntity<String> entity =  buildHeaders(paginacion);
 
 		ResponseEntity<Cliente[]> response = restTemplate.exchange(SERVER + ":" + PORT + "/clientes/paginado", HttpMethod.GET,entity, Cliente[].class);		
 		
 		Cliente[] clientes = response.getBody();
 		
-		String total=  response.getHeaders().getFirst("Paginacion-Total");
+		String total=  response.getHeaders().getFirst(Constantes.PAGINACION_TOTAL);
 		paginacion.setTotalRegistros(Integer.valueOf(total));
 		
 		return Arrays.asList(clientes);
 
 	}
 	
+	
+	// TODO -- Implementar búsquedas paginadas
 	public List<Cliente> findClientesPaginados(Cliente cliente, int inicio){
 		
 		HttpHeaders headers = new HttpHeaders();

@@ -17,7 +17,7 @@ public class UrlConstants {
 	
 	public static final String URL_LISTADO_PEDIDOS_CLIENTE = "/listadoPedidosCliente.do";
 	
-	public static final String URL_LISTADO_PEDIDOS = "/listadoPedidos.do";
+	public static final String URL_LISTADO_PEDIDOS = "/listadoPedidos" + SUFIJO_PAGINACION;
 	public static final String URL_VER_DETALLE_PEDIDO = "/detallePedido.do";
 	
 	

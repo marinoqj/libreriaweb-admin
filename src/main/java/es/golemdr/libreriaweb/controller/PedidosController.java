@@ -10,6 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import es.golemdr.libreriaweb.service.PedidosService;
@@ -17,6 +18,7 @@ import es.golemdr.libreriaweb.controller.constantes.ForwardConstants;
 import es.golemdr.libreriaweb.controller.constantes.UrlConstants;
 import es.golemdr.libreriaweb.domain.Cliente;
 import es.golemdr.libreriaweb.domain.Pedido;
+import es.golemdr.libreriaweb.ext.utils.paginacion.PaginacionBean;
 
 @Controller
 public class PedidosController {
@@ -28,12 +30,16 @@ public class PedidosController {
 	private PedidosService pedidosService;
 	
 	@GetMapping(UrlConstants.URL_LISTADO_PEDIDOS)
-	public String listadoPedidos(Map<String, Object> map, HttpServletRequest request) {
+	public String listadoPedidos(@PathVariable("inicio") int inicio, Map<String, Object> map, HttpServletRequest request) {
 
 		List<Pedido> resultado = null;
-		resultado = pedidosService.getPedidos();
+		PaginacionBean paginacion = new PaginacionBean();
+		paginacion.setInicio(inicio - 1);
+		
+		resultado = pedidosService.getPedidosPaginados(paginacion);
 
 		map.put("pedidos", resultado);
+		map.put("paginacion", paginacion);
 
 		return ForwardConstants.FWD_LISTADO_PEDIDOS;
 
