@@ -49,18 +49,18 @@ function mostrarConfirm(message) {
 </script>
 
 
-<!-- Warning Modal -->
+<!-- Confirm Modal -->
 <div id="alertModal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Atención</h5>
+      <div class="modal-header alert alert-warning">
+      	<h5 class="modal-title"><i class="fas fa-exclamation-triangle fa-lg"></i>&nbsp;Atención</h5>  
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button>		     
       </div>    
       <div class="modal-body">
-         <p></p>
+         <p class="text-center"></p>
       </div>
       <div class="modal-footer">         
          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><i class="fas fa-times-circle"></i>&nbsp;&nbsp;Cancelar</button>
@@ -69,8 +69,7 @@ function mostrarConfirm(message) {
     </div>
   </div>
 </div>
-
-<!-- ./ Warning Modal -->
+<!-- ./ Confirm Modal -->
 
 <br>
 <br>

@@ -84,11 +84,14 @@ function verDetallePedido(idPedido){
               </table>		
 		</c:if>
 		
-		<c:if  test="${empty pedidos}">>
-		<div class="row">
-			<div class="col-md-3 col-lg-2">&nbsp;</div>
-			<div class="col-md-6 col-lg-4 align-middle alert alert-warning"><i class="fas fa-info-circle fa-2x"></i> No se encontraron pedidos que mostrar</div>
-			<div class="col-md-3 col-lg-2">&nbsp;</div>
+		<c:if  test="${empty pedidos}">
+		<br>
+		<br>
+		<br>
+		<div class="row alert alert-warning">
+			<div class="col-md-4">&nbsp;</div>
+			<div class="col-md-4"><i class="fas fa-info-circle fa-2x align-bottom"></i> No se encontraron pedidos que mostrar</div>
+			<div class="col-md-4">&nbsp;</div>
 		</div>
 		</c:if> 
 	
