@@ -47,6 +47,7 @@ public class ProductosController {
 	public String list(@PathVariable("inicio") int inicio,Map<String, Object> map, HttpServletRequest request) {
 		
 		// TODO - Resolver el tema de la paginación
+		// DONE- Resuelto en clientes
 		
 		List<Producto> resultado = null;
 		//PaginacionBean paginacion = PaginacionFactory.getPaginacionBean(request);
